@@ -10,10 +10,6 @@ RUN wget https://github.com/pocketbase/pocketbase/releases/download/v0.34.1/pock
     && chmod +x /usr/local/bin/pocketbase \
     && rm pb.zip
 
-# Copier le script de démarrage
-COPY start.sh /start.sh
-RUN chmod +x /start.sh
-
 EXPOSE 10000
 
-CMD ["/start.sh"]
+CMD ["pocketbase", "serve", "--http=0.0.0.0:10000"]
