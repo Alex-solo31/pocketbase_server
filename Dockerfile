@@ -10,6 +10,6 @@ RUN wget https://github.com/pocketbase/pocketbase/releases/download/v0.34.1/pock
     && chmod +x /usr/local/bin/pocketbase \
     && rm pb.zip
 
-EXPOSE 10000
+EXPOSE 8080
 
-CMD ["./pocketbase", "admin", "create", "admin@example.com", "AdminTemp123!"]
+CMD ["pocketbase", "serve", "--http=0.0.0.0:8080", "--dir", "/pbdata2"]
