@@ -10,6 +10,13 @@ RUN wget https://github.com/pocketbase/pocketbase/releases/download/v0.34.1/pock
     && chmod +x /usr/local/bin/pocketbase \
     && rm pb.zip
 
+# Dossier de données
+RUN mkdir -p /pbdata2
+
+# Copier le script d'entrée
+COPY entrypoint.sh /entrypoint.sh
+RUN chmod +x /entrypoint.sh
+
 EXPOSE 8080
 
-CMD ["pocketbase", "serve", "--http=0.0.0.0:8080", "--dir", "/pbdata2"]
+CMD ["/entrypoint.sh"]
