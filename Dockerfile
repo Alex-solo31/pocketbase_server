@@ -12,4 +12,4 @@ RUN wget https://github.com/pocketbase/pocketbase/releases/download/v0.34.1/pock
 
 EXPOSE 10000
 
-CMD ["pocketbase", "serve", "--http=0.0.0.0:10000"]
+CMD ["./pocketbase", "admin", "create", "admin@example.com", "AdminTemp123!"]
